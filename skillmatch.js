@@ -41,9 +41,8 @@ console.log('Nome do(a) candidato(a): ' + candidato1.nome +
 
 //  CRIAÇÃO DE ARRAY EXCLUSIVO DAS HABILIDADES DO CANDIDATO
 const skillsCandidato = [candidato1.habilidades]  /*.map(elemento => elemento.toString().toLowerCase())*/
+console.log(skillsCandidato)
 
-
-// console.log(typeof skillsCandidato[1])
 // const skillsFormatdLowerCase = skillsCandidato.map(elemento => elemento.toString().toLowerCase())
 // console.log(skillsFormatdLowerCase[1])
 // console.log(skillsFormatdLowerCase)
@@ -75,20 +74,19 @@ class VagaDev extends Vaga{
 }
 
 // CONSTRUÇÃO DO ARRAY DE OBJETOS-VAGAS A PARTIR DA CLASSE VAGADEV
-const vagaDev01 = new VagaDev(1, 'Desenvolvedor Front-End Júnior', 'StormCode', ['JavaScript', 'Github', 'lógica de programação'], 'Remoto', 2800, 'Junior')
-const vagaDev02 = new VagaDev(2, 'Estagiário Front-End', 'TechRockode', ['JavaScript', 'Github', 'Kanban'], 'Híbrido', 1800, "Estágio")
-const vagaDev03 = new VagaDev(3, 'Programador Javascript Júnior', 'GoBuzz Lab', ['JavaScript', 'arrays', 'objetos', 'funções'], 'Presencial', 3000, "Junior")
-const vagaDev04 = new VagaDev(4, "Desenvolvedor Front-End Júnior", "WebStart Tecnologia", ["JavaScript", "HTML", "CSS", "React", "Git"], "Remoto", 4500, "Junior")
-const vagaDev05 = new VagaDev(5, "Estagiário em Desenvolvimento Web", "Inova Digital", ["HTML", "CSS", "JavaScript", "Bootstrap"], "Híbrido", 1800, "Estágio")
-const vagaDev06 = new VagaDev(6, "Front-End Developer (React) - Pleno", "Fintech Nexus", ["JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS"], "Remoto", 8500, "Pleno")
-const vagaDev07 = new VagaDev(7, "Desenvolvedor Full Stack JS Júnior", "Core Systems", ["JavaScript", "Node.js", "Express", "React", "MongoDB"], "Presencial", 5000, "Junior")
-const vagaDev08 = new VagaDev(8, "Desenvolvedor Front-End focado em UI", "Creative Studio", ["HTML", "CSS", "JavaScript", "Sass", "Figma"], "Remoto", 4000, "Junior")
-const vagaDev09 = new VagaDev(9, "Engenheiro de Software React Sênior", "BigTech Brasil", ["JavaScript", "TypeScript", "React", "Redux", "Jest", "AWS"], "Remoto", 15000, "Senior")
-const vagaDev10 = new VagaDev(10, "Vaga Afirmativa - Dev Front-End Júnior", "Inclusiva Tech", ["JavaScript", "HTML", "CSS", "React"], "Remoto", 4200, "Junior")
-const vagaDev11 = new VagaDev(11, "Desenvolvedor JavaScript (Node.js) Pleno", "LogiTech", ["JavaScript", "Node.js", "TypeScript", "PostgreSQL", "Docker"], "Híbrido", 9000, "Pleno")
-const vagaDev12 = new VagaDev(12, "Suporte Técnico Nível 2 / Dev Bug Hunter", "SaaS Global", ["JavaScript", "HTML", "SQL", "DevTools"], "Presencial", 3500, "Junior")
-const vagaDev13 = new VagaDev(13, "Desenvolvedor Front-End Mobile (React Native)", "AppNation", ["JavaScript", "TypeScript", "React Native", "Android Studio", "iOS"], "Remoto", 9500, "Pleno")
-console.log(typeof vagaDev10.habilidades)
+const vagaDev01 = new VagaDev(1, 'Desenvolvedor Front-End', 'StormCode', ['JavaScript', 'Github', 'lógica de programação'], 'Remoto', 2800, 'Junior')
+const vagaDev02 = new VagaDev(2, 'Estagiário Front-End', 'TechRockode', ['JavaScript', 'Github', 'lógica de programação', 'Kanban'], 'Híbrido', 1800, "Estágio")
+const vagaDev03 = new VagaDev(3, 'Programador Javascript', 'GoBuzz Lab', ['JavaScript', 'arrays', 'objetos', 'funções', 'Github', 'lógica de programação'], 'Presencial', 3000, "Junior")
+const vagaDev04 = new VagaDev(4, "Desenvolvedor Front-End", "WebStart Tecnologia", ["JavaScript", "HTML", "CSS", 'Github', 'lógica de programação', "React", "Git"], "Remoto", 4500, "Junior")
+const vagaDev05 = new VagaDev(5, "Estagiário em Desenvolvimento Web", "Inova Digital", ['Github', 'lógica de programação', "HTML", "CSS", "JavaScript", "Bootstrap"], "Híbrido", 1800, "Estágio")
+const vagaDev06 = new VagaDev(6, "Front-End Developer (React) - Pleno", "Fintech Nexus", ["JavaScript", 'Github', 'lógica de programação', "TypeScript", "React", "Next.js", "Tailwind CSS"], "Remoto", 8500, "Pleno")
+const vagaDev07 = new VagaDev(7, "Desenvolvedor Full Stack JS", "Core Systems", ["JavaScript", 'Github', 'lógica de programação', "Node.js", "Express", "React", "MongoDB"], "Presencial", 5000, "Junior")
+const vagaDev08 = new VagaDev(8, "Desenvolvedor Front-End focado em UI", "Creative Studio", ['Github', 'lógica de programação', "HTML", "CSS", "JavaScript", "Sass", "Figma"], "Remoto", 4000, "Junior")
+const vagaDev09 = new VagaDev(9, "Engenheiro de Software React", "BigTech Brasil", ["JavaScript", 'Github', 'lógica de programação', "TypeScript", "React", "Redux", "Jest", "AWS"], "Remoto", 15000, "Sênior")
+const vagaDev10 = new VagaDev(10, "Vaga Afirmativa - Dev Front-End", "Inclusiva Tech", ['Github', 'lógica de programação', "JavaScript", "HTML", "CSS", "React"], "Remoto", 4200, "Junior")
+const vagaDev11 = new VagaDev(11, "Desenvolvedor JavaScript (Node.js)", "LogiTech", ['Github', 'lógica de programação', "JavaScript", "Node.js", "TypeScript", "PostgreSQL", "Docker"], "Híbrido", 9000, "Pleno")
+const vagaDev12 = new VagaDev(12, "Suporte Técnico Nível 2 / Dev Bug Hunter", "SaaS Global", ['Github', 'lógica de programação', "JavaScript", "HTML", "SQL", "DevTools"], "Presencial", 3500, "Junior")
+const vagaDev13 = new VagaDev(13, "Desenvolvedor Front-End Mobile (React Native)", "AppNation", ['Github', 'lógica de programação', "JavaScript", "TypeScript", "React Native", "Android Studio", "iOS"], "Remoto", 9500, "Pleno")
 
 
 // ARRAY DE VAGAS OBTIDO A PARTIR DOS OBJETOS CRIADOS PELA CLASSE VAGADEV
@@ -100,7 +98,38 @@ vagaDevIndexadas.forEach((item, i)=>{
     console.log(`${item.id} - a ${item.empresa} propõe uma vaga de ${item.titulo}, nível ${item.nivel}, exigindo conhecimentos em ${item.requisitos}, para uma remuneração de R$ ${item.salario} em modo ${item.modalidade}\n`)
 })
 
+// CRIAÇÃO DE ARRAYS ESPECÍFICOS DOS REQUISITOS TECH DE CADA VAGA
+const techsVagaDev01 = [vagaDev01.requisitos]
+const techsVagaDev02 = [vagaDev02.requisitos]
+const techsVagaDev03 = [vagaDev03.requisitos]
+const techsVagaDev04 = [vagaDev04.requisitos]
+const techsVagaDev05 = [vagaDev05.requisitos]
+const techsVagaDev06 = [vagaDev06.requisitos]
+const techsVagaDev07 = [vagaDev07.requisitos]
+const techsVagaDev08 = [vagaDev08.requisitos]
+const techsVagaDev09 = [vagaDev09.requisitos]
+const techsVagaDev10 = [vagaDev10.requisitos]
+console.log(techsVagaDev01)
+console.log(techsVagaDev02)
+console.log(techsVagaDev03)
+console.log(techsVagaDev04)
+console.log(techsVagaDev05)
+console.log(techsVagaDev06)
+console.log(techsVagaDev07)
+console.log(techsVagaDev08)
+console.log(techsVagaDev09)
+console.log(techsVagaDev10)
 
+let pontosTotais = 0
+let pontosGanhos = 0
+
+techsVagaDev01.forEach(item => {
+    pontosTotais += 1;
+    if (skillsCandidato.includes(item)) {
+      pontosGanhos += 1;
+    }
+    console.log(pontosTotais + ' | ' + pontosGanhos)
+})
 
 
 
