@@ -1,5 +1,6 @@
 const input = require('prompt-sync')()
 
+
 // CRIAÇÃO DA CLASSE "CANDIDATO"
     // função para automatizar avaliação do nivel candidato
 function classifNivel(a){
@@ -23,11 +24,12 @@ const candidatos = []
 
 // CRIAÇÃO DE UM OBJETO CANDIDATO a partir de sua classe
 // -> inserção desse candidato no array geral (base RH) de candidatos disponiveis
-candidatos.push(new Candidato('Tânia FONSECA', 'FrontEnd', ['JavaScript', 'HTML', 'CSS', 'Github', 'lógica de programação', 'Kanban', 'DevTools', 'React'], 26, this.nivel))
+candidatos.push(new Candidato('Tânia FONSECA', 'FrontEnd', ['JavaScript', 'HTML', 'CSS', 'Github', 'lógica de programação', 'Kanban'], 26, this.nivel))
 // console.log(candidatos)
 
 
 // APRESENTAÇÃO DO(S) CANDIDATO(S)
+console.log('LISTA DE CANDIDATOS DISPONÍVEIS NA BASE RH: \n')
 candidatos.forEach(candidato =>{
     console.log('Nome do(a) candidato(a): ' + candidato.nome +
     '\nÁrea: ' + candidato.area +
@@ -36,9 +38,17 @@ candidatos.forEach(candidato =>{
     '\nNível do candidato: ' + candidato.nivel + '\n')
 })
 
+let inputCandidato = input('Qual candidato você quer avaliar?  ')
+const n = Number(inputCandidato)
+console.log(n)
+console.log(typeof n)
 
-// const skillsFormatdLowerCase = skillsCandidato.map(elemento => elemento.toString().toLowerCase())
-
+if (n >= 0 && n < candidatos.length) {
+    console.log(`Ok, vamos avaliar a compatibilidade de ${candidatos[n].nome} com as vagas disponíveis`)
+} else {
+    console.log('Opção inexistente! Por favor escolha outro candidato');
+    return;
+}
 
 
 // ANÚNCIO DE VAGA GENERALISTA: CRIAÇÃO DE CLASSE PAI:
@@ -100,9 +110,13 @@ vagasIndex.push(new VagaDev(13, "Desenvolvedor Front-End Mobile (React Native)",
 
 
 // APRESENTAÇÃO FORMATADA DAS VAGAS INDEXADAS (SUPOSTAMENTE PELO BUSCADOR)
+console.log('\n\n')
+console.log('LISTA DE VAGAS DEV/TECH INDEXADAS\n')
 vagasIndex.forEach(item =>{
     console.log(`${item.id}. ${item.empresa} -> ${item.titulo}, nível ${item.nivel}\nRequisitos: ${item.requisitos}\nSalario: R$ ${item.salario}\nModo: ${item.modalidade}\n`)
 })
+console.log('\n\n')
+
 
 // // CRIAÇÃO DE ARRAY COMPOSTO EXCLUSIVAMENTE DOS ARRAYS DE TECHS REQUISITADAS NAS VAGAS
 const vagasIndexRequisitos = vagasIndex.map(vaga => ({
@@ -110,12 +124,56 @@ const vagasIndexRequisitos = vagasIndex.map(vaga => ({
 }))
 console.log(vagasIndexRequisitos)
 
-// CRIAÇÃO DE ARRAY DAS HABILIDADES DO CANDIDATO[0]
-const techsCandidato0 = candidatos[0].habilidades
-console.log(techsCandidato0)
 
-const vagas05Requisitos = vagasIndexRequisitos[5]
-console.log(vagas05Requisitos)
+// CRIAÇÃO DE ARRAY DAS HABILIDADES DO CANDIDATO[n]
+const techsCandidato = candidatos[n].habilidades
+console.log(techsCandidato)
+
+console.log(candidatos[n].nivel)
+
+let inputVaga = input('Qual vaga você quer avaliar?  ')
+const v = Number(inputVaga)-1
+console.log(typeof v)
+
+console.log(vagasIndex[v])
+console.log(typeof vagasIndex[v].nivel)
+
+
+if(v >= 0 && v < vagasIndex.length) {console.log(`Ok, vamos avaliar a compatibilidade de ${candidatos[n].nome} com a vaga de ${vagasIndex[v].titulo} na ${vagasIndex[v].empresa}!`)}
+else {
+    console.log('Opção inexistente! Por favor escolha outro candidato')
+    return
+}
+
+
+
+// ADERÊNCIA DO PERFIL CANDIDATO[n] À CADA VAGA:
+function calcularCompatVaga(n, v) {
+    let pontosTotais = 0
+    let pontosGanhos = 0
+
+    // compatibilidade em nível de experiência
+    pontosTotais += 2
+    if (candidatos[n].nivel === vagasIndex[v].nivel) {
+        pontosGanhos += 2
+    }
+    else {
+        console.log('nível de perfil incompatível')
+    }
+    console.log(pontosGanhos, pontosTotais)
+
+    // compatibilidade entre habilidades-Candidato e requisitos-Vaga
+    vagasIndex[v].requisitos.forEach(requisito=> {
+        pontosTotais++
+        if (techsCandidato.includes(requisito)) {pontosGanhos++}
+    })
+    console.log(pontosGanhos, pontosTotais)
+}
+calcularCompatVaga(n, v)
+
+
+
+
 
 // console.log(
 //     vagasIndex.filter(item => item.requisitos.includes('HTML'))
@@ -127,32 +185,6 @@ console.log(vagas05Requisitos)
 // )
 
 
-// ADERÊNCIA DO PERFIL CANDIDATO À CADA VAGA:
-function calcularCompatVaga() {
-    let pontosTotais = 0
-    let pontosGanhos = 0
-
-    // compatibilidade em nível de experiência
-    pontosTotais += 2
-    if(candidatos[0].nivel === vagasIndex[2].nivel){pontosGanhos += 2}
-    else {console.log('nível de perfil incompatível')}
-    console.log(pontosGanhos, pontosTotais)
-
-    // compatibilidade entre habilidades-Candidato e requisitos-Vaga
-    // vagas05Requisitos.forEach(item => {
-    //     pontosTotais++
-    //     if (techsCandidato0.includes(item)) pontosGanhos++
-    // })
-    // console.log(pontosGanhos, pontosTotais)
-}
-calcularCompatVaga()
-
-vagasIndexRequisitos[5].forEach(item => {
-    console.log(item)
-    // if (techsCandidato0.includes(item)) {pontosGanhos++}
-    // pontosTotais++
-})
-// console.log(pontosGanhos, pontosTotais)
 
 // calcularCompatVaga(){
 // for(i=0; i < vagasIndexRequisitos.length; i++){
@@ -160,32 +192,3 @@ vagasIndexRequisitos[5].forEach(item => {
 //     console.log('teste')
     // if (vagasIndexRequisitos[i].includes(candidatos[0].habilidades[0])) pontosGanhos++
 // }
-
-
-// vagasIndex.forEach(vaga => {
-//     pontosTotais
-//     if (vaga.requisitos.includes(candidatos[0].habilidades[7])) 
-//         {console.log(vaga)}
-//     // vaga.filter(vaga.requisitos.includes(candidatos[0].habilidades)
-//         // requisito === loopSkillsCandidato()? : ;
-
-// })
-
-
-
-
-
-
-
-// function buscarVagasIndexadas(){
-//     return new Promise((resolve) => {
-//         setTimeout(()=>{
-//             resolve(vagasIndex);
-//         }, 1000);        
-//     })
-// }
-
-// async function iniciarSistema(){
-//     const vagasCarregadas = await buscarVagasIndexadas();
-//     console.log('Vagas carregadas com sucesso!');
-//     console.log(vagasCarregadas)
