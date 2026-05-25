@@ -115,6 +115,8 @@ vagasIndex.push(new VagaFE(13, "Desenvolvedor Front-End Mobile (React Native)", 
 // APRESENTAÇÃO FORMATADA DAS VAGAS INDEXADAS (SUPOSTAMENTE PELO BUSCADOR)
 console.log('\n')
 console.log('LISTA DE VAGAS FRONT-END INDEXADAS\n')
+
+
 vagasIndex.forEach(item =>{
     console.log(`${item.id}. ${item.empresa} -> ${item.titulo}, nível ${item.nivel}\nRequisitos: ${item.requisitos}\nSalario: R$ ${item.salario}\nModo: ${item.modalidade}\n`)
 })
