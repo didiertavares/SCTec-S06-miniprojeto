@@ -119,8 +119,8 @@ console.log('LISTA DE VAGAS FRONT-END INDEXADAS\n')
 
 vagasIndex.forEach(item =>{
     console.log(`${item.id}. ${item.empresa} -> ${item.titulo}, nível ${item.nivel}\nRequisitos: ${item.requisitos}\nSalario: R$ ${item.salario}\nModo: ${item.modalidade}\n`)
+    console.log('\n')
 })
-console.log('\n')
 
 
 // CRIAÇÃO DE ARRAY DAS HABILIDADES DO CANDIDATO[n]
